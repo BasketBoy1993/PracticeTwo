@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.practice" >
+
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WEITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_logo"
+        android:supportsRtl="true"
+        android:theme="@style/BaseAppTheme" >
+
+        <activity android:name=".activity.MainActivity"></activity>
+
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.ChatActivity" />
+
+        <activity android:name=".activity.CustomCameraActivity" />
+
+        <activity
+            android:name=".activity.ShowPopupWindowWithSoftInputActivity"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".activity.GetTouchLocationActivity" />
+        <activity android:name=".activity.NotificationActivity" />
+        <activity android:name=".activity.RecyclerViewGridlayoutManagerActivity" />
+        <activity android:name=".activity.RecyclerviewLinearlayoutManagerActivity" />
+
+    </application>
+
+</manifest>

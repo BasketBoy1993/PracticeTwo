@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#565656"
+        android:text="跳转页面"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_swipe_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="刷新布局(SwipeLayout)的使用"/>
+
+            <Button
+                android:id="@+id/btn_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="聊天界面UI设计"/>
+
+            <Button
+                android:id="@+id/btn_custom_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="自定义相机"/>
+
+            <Button
+                android:id="@+id/btn_auto_fit_popupwindow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="弹窗自适应点击View显示(不隐藏输入法)"/>
+
+            <Button
+                android:id="@+id/btn_get_touch_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="获取触摸时点击的位置信息"/>
+
+            <Button
+                android:id="@+id/btn_notification"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="通知的使用"/>
+
+            <Button
+                android:id="@+id/btn_recyclerview_linearlayourmanager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="recyclerview线性布局"/>
+
+            <Button
+                android:id="@+id/btn_recyclerview_gridlayoutmanager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="recyclerview网格布局"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
