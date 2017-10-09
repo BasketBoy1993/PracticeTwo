@@ -14,4 +14,14 @@
         <item name="android:windowBackground">@color/mainBackgroundColor</item>
     </style>
 
+
+    <!--防止应用启动时白屏或者黑屏的style-->
+    <style name="SplashTheme" parent="android:Theme.Light.NoTitleBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
 </resources>

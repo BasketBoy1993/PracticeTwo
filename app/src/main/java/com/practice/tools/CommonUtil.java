@@ -67,5 +67,4 @@ public class CommonUtil {
         return context.getResources().getDisplayMetrics().widthPixels;
     }
 
-
 }

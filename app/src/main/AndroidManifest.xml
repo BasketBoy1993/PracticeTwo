@@ -18,7 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme" >
 
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="com.practice.activity.MainActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
@@ -39,6 +44,7 @@
         <activity android:name=".activity.NotificationActivity" />
         <activity android:name=".activity.RecyclerViewGridlayoutManagerActivity" />
         <activity android:name=".activity.RecyclerviewLinearlayoutManagerActivity" />
+        <activity android:name=".activity.PictureViewerActivity" />
 
     </application>
 

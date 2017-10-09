@@ -75,6 +75,42 @@
                 android:layout_height="match_parent"
                 android:text="recyclerview网格布局"/>
 
+            <Button
+                android:id="@+id/btn_picture_viewer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="图片查看器"/>
+
+            <Button
+                android:id="@+id/btn_light_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="点亮屏幕(修改当前页面亮度)"/>
+
+            <Button
+                android:id="@+id/btn_change_system_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="改变系统亮度(要将亮度写入系统数据库，因此需要相应的权限)"/>
+
+            <Button
+                android:id="@+id/btn_splash_theme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="使用SplashTheme主题，防止启动界面白屏或者黑屏的问题"/>
+
+            <Button
+                android:id="@+id/btn_explicit_start_activity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="显式启动activity"/>
+
+            <Button
+                android:id="@+id/btn_implicit_start_activity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="隐式启动activity"/>
+
         </LinearLayout>
 
     </ScrollView>

@@ -1,11 +1,15 @@
 package com.practice.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.practice.R;
@@ -23,6 +27,11 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private Button notificationBtn;
     private Button recyclerViewLinearlayoutBtn;
     private Button recyclerViewGridlayoutBtn;
+    private Button pictureViewerBtn;
+    private Button lightScreenBtn;
+    private Button changeSysBrightnessBtn;
+    private Button explicitStartActivityBtn;
+    private Button implicitStartActivityBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +56,16 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         recyclerViewLinearlayoutBtn.setOnClickListener(this);
         recyclerViewGridlayoutBtn = (Button) findViewById(R.id.btn_recyclerview_gridlayoutmanager);
         recyclerViewGridlayoutBtn.setOnClickListener(this);
+        pictureViewerBtn = (Button) findViewById(R.id.btn_picture_viewer);
+        pictureViewerBtn.setOnClickListener(this);
+        lightScreenBtn = (Button) findViewById(R.id.btn_light_screen);
+        lightScreenBtn.setOnClickListener(this);
+        changeSysBrightnessBtn = (Button) findViewById(R.id.btn_change_system_brightness);
+        changeSysBrightnessBtn.setOnClickListener(this);
+        explicitStartActivityBtn = (Button) findViewById(R.id.btn_explicit_start_activity);
+        explicitStartActivityBtn.setOnClickListener(this);
+        implicitStartActivityBtn = (Button) findViewById(R.id.btn_implicit_start_activity);
+        implicitStartActivityBtn.setOnClickListener(this);
     }
 
     @Override
@@ -77,7 +96,48 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_recyclerview_gridlayoutmanager:
                 intent.setClass(this, RecyclerViewGridlayoutManagerActivity.class);
                 break;
+            case R.id.btn_picture_viewer:
+                intent.setClass(this, PictureViewerActivity.class);
+                break;
+            case R.id.btn_light_screen:
+                lightScreen(this, 255);
+                break;
+            case R.id.btn_change_system_brightness:
+                changeSystemBrightness(this, 160);
+                break;
+            case R.id.btn_explicit_start_activity:
+                Intent intent1 = new Intent(this, MainActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.btn_implicit_start_activity:
+                Intent intent2 = new Intent("com.practice.activity.MainActivity");
+                startActivity(intent2);
+                break;
         }
         startActivity(intent);
     }
+
+
+
+
+    /**
+     * 展示二维码的时候点亮屏幕（不会随着系统的亮度自动变化，退出当前页面，其他页面亮度受系统亮度控制）
+     * @param activity  当前页面activity对象
+     * @param brightness  亮度(范围为0-255)
+     */
+    private void lightScreen(Activity activity, int brightness){
+        WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+        lp.screenBrightness = Float.valueOf(brightness) * (1f / 255f);
+        activity.getWindow().setAttributes(lp);
+    }
+
+
+
+
+    private void changeSystemBrightness(Activity activity, int brightness){
+        Uri uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
+        Settings.System.putInt(activity.getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightness);
+        activity.getContentResolver().notifyChange(uri, null);
+    }
+
 }
