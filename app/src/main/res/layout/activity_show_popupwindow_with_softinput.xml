@@ -51,7 +51,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="4"
                     android:layout_height="match_parent"
-                    android:background="@drawable/edit_content_input_bg"
+                    android:background="@drawable/underline_bg"
+                    android:textCursorDrawable="@drawable/cursor_bg"
                     android:singleLine="true"
                     android:textColor="#000"
                     android:textSize="18sp" />

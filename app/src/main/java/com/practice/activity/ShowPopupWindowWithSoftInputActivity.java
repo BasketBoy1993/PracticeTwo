@@ -121,6 +121,7 @@ public class ShowPopupWindowWithSoftInputActivity extends AppCompatActivity impl
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (view.getId()){
             case R.id.listview_chat:
+                chatMsgLv.requestFocus();
                 hideKeyBoard();
                 break;
             case R.id.edit_content_input:

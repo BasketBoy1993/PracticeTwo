@@ -2,6 +2,7 @@ package com.practice.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.practice.R;
+import com.practice.receiver.PhoneStateReceiver;
 
 /**
  * Created by user on 2017/8/13.
@@ -32,6 +34,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private Button changeSysBrightnessBtn;
     private Button explicitStartActivityBtn;
     private Button implicitStartActivityBtn;
+
+
+    private PhoneStateReceiver phoneStateReceiver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +71,14 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         explicitStartActivityBtn.setOnClickListener(this);
         implicitStartActivityBtn = (Button) findViewById(R.id.btn_implicit_start_activity);
         implicitStartActivityBtn.setOnClickListener(this);
+
+
+        phoneStateReceiver = new PhoneStateReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.PHONE_STATE");
+        intentFilter.addAction("android.intent.action.NEW_OUTGOING_CALL");
+        registerReceiver(phoneStateReceiver, intentFilter);
+
     }
 
     @Override
@@ -118,7 +131,11 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-
+    @Override
+    protected void onDestroy() {
+        unregisterReceiver(phoneStateReceiver);
+        super.onDestroy();
+    }
 
     /**
      * 展示二维码的时候点亮屏幕（不会随着系统的亮度自动变化，退出当前页面，其他页面亮度受系统亮度控制）
