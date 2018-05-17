@@ -34,6 +34,10 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private Button changeSysBrightnessBtn;
     private Button explicitStartActivityBtn;
     private Button implicitStartActivityBtn;
+    private Button atBtn;
+    private Button judgeDeviceBtn;
+    private Button getDeviceInfoBtn;
+    private Button testWriteAndReadBtn;
 
 
     private PhoneStateReceiver phoneStateReceiver;
@@ -71,6 +75,25 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         explicitStartActivityBtn.setOnClickListener(this);
         implicitStartActivityBtn = (Button) findViewById(R.id.btn_implicit_start_activity);
         implicitStartActivityBtn.setOnClickListener(this);
+        atBtn = (Button) findViewById(R.id.btn_at);
+        atBtn.setOnClickListener(this);
+        judgeDeviceBtn = (Button) findViewById(R.id.btn_judge_device);
+        judgeDeviceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String model = android.os.Build.MODEL;
+                String carrier = android.os.Build.MANUFACTURER;
+
+                System.out.println("========手机型号：" + model.toString());
+                System.out.println("========手机厂商：" + carrier.toString());
+            }
+        });
+
+        getDeviceInfoBtn = (Button) findViewById(R.id.btn_get_device_imei_and_imsi);
+        getDeviceInfoBtn.setOnClickListener(this);
+
+        testWriteAndReadBtn = (Button) findViewById(R.id.btn_test_write_and_read_in_three_defense);
+        testWriteAndReadBtn.setOnClickListener(this);
 
 
         phoneStateReceiver = new PhoneStateReceiver();
@@ -125,6 +148,15 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_implicit_start_activity:
                 Intent intent2 = new Intent("com.practice.activity.MainActivity");
                 startActivity(intent2);
+                break;
+            case R.id.btn_at:
+                intent.setClass(this, AtActivity.class);
+                break;
+            case R.id.btn_get_device_imei_and_imsi:
+                intent.setClass(this, ImeiImsiActivity.class);
+                break;
+            case R.id.btn_test_write_and_read_in_three_defense:
+                intent.setClass(this, ThreeDefenseActivity.class);
                 break;
         }
         startActivity(intent);

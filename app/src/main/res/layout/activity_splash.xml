@@ -111,6 +111,30 @@
                 android:layout_height="match_parent"
                 android:text="隐式启动activity"/>
 
+            <Button
+                android:id="@+id/btn_at"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="聊天@朋友"/>
+
+            <Button
+                android:id="@+id/btn_judge_device"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="判断设备类型"/>
+
+            <Button
+                android:id="@+id/btn_get_device_imei_and_imsi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="获取设备的IMEI和IMSI"/>
+
+            <Button
+                android:id="@+id/btn_test_write_and_read_in_three_defense"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="测试三防机的读写"/>
+
         </LinearLayout>
 
     </ScrollView>

@@ -48,6 +48,10 @@
         <activity android:name=".activity.RecyclerViewGridlayoutManagerActivity" />
         <activity android:name=".activity.RecyclerviewLinearlayoutManagerActivity" />
         <activity android:name=".activity.PictureViewerActivity" />
+        <activity android:name=".activity.AtActivity" />
+        <activity android:name=".activity.ImeiImsiActivity" />
+        <activity android:name=".activity.ThreeDefenseActivity" />
+
 
     </application>
 
